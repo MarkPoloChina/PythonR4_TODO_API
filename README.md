@@ -68,5 +68,5 @@ value就有点问题。
 historyList = conn.lrange(history, 0 ,9)
 listToOutput = list()
 for obj in historyList:
-	listToOutput.append(obj.decode())
+ listToOutput.append(obj.decode())
 ```
