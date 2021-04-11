@@ -4,6 +4,14 @@ from app import app, db, token, redis
 from sqlalchemy import and_
 from app.models import *
 
+#跨域
+@app.after_request
+def cors(resp):
+    resp.headers['Access-Control-Allow-Origin'] = '*'
+    resp.headers['Access-Control-Allow-Methods'] = 'GET,POST,PUT,DELETE'
+    resp.headers['Access-Control-Allow-Headers'] = 'x-requested-with,content-type'
+    return resp
+
 @app.route('/todolist/test')
 def test():
     currentId = token.checkAuth(request)
